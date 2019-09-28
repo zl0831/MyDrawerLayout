@@ -1,6 +1,8 @@
 package com.zl.drawerdemo.activity;
 
 import android.graphics.Color;
+import android.os.Bundle;
+import android.view.ContextMenu;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
@@ -14,6 +16,7 @@ import android.widget.Toast;
 
 import androidx.annotation.LayoutRes;
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.drawerlayout.widget.DrawerLayout;
@@ -25,10 +28,7 @@ import com.zl.drawerdemo.pupwindow.CommonPop;
 /**
  * 尝试封装成基类Drawer（测试版，不全，未整理）
  */
-public class DrawerActivity extends AppCompatActivity {
-
-    private static final String TAG = "DrawerActivity";
-
+public abstract class DrawerActivity extends BaseActivity {
     // 抽屉菜单对象
     public DrawerLayout drawerLayout;
     private RelativeLayout main_left_drawer_layout, main_right_drawer_layout;
@@ -42,17 +42,14 @@ public class DrawerActivity extends AppCompatActivity {
     private float DrawerScale = 1.0f;
     private float DrawerAlpha = 0.5f;
 
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
 
-    public void SetContentView(@LayoutRes int resId) {
-        setContentView(R.layout.activity_drawer);
-
-        //获取系统参数
-        params = getWindow().getAttributes();
-
-        InitToolBar();
-        InitLayout();
-        InitEvent();
+        InitView();
+        InitData();
     }
+
 
     /**
      * 使用ToolBar则需要把app默认的actionbar去掉或者隐藏，toolbar要好用一些，可以在AndroidManifest.xml修改android:theme属性
@@ -101,7 +98,11 @@ public class DrawerActivity extends AppCompatActivity {
 
     }
 
-    public void InitLayout() {
+    @Override
+    protected abstract int InitLayout();
+
+    @Override
+    protected void InitView() {
         /**
          * 整个DrawerLayout布局，google原生态的抽屉布局
          **/
@@ -133,6 +134,18 @@ public class DrawerActivity extends AppCompatActivity {
          * 使用默认布局，侧滑出来的布局完全需要自定义
          * */
         main_right_drawer_layout = findViewById(R.id.right_drawer_layout);
+
+        InitToolBar();
+        InitLayout();
+        InitEvent();
+    }
+
+    @Override
+    protected void InitData() {
+
+
+        //获取系统参数
+        params = getWindow().getAttributes();
 
     }
 

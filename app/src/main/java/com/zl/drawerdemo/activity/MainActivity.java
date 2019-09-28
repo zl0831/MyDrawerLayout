@@ -14,7 +14,10 @@ public class MainActivity extends DrawerActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        //调用基类中的初始函数
-        super.SetContentView(R.layout.activity_drawer);
+    }
+
+    @Override
+    protected int InitLayout() {
+        return R.layout.activity_drawer;
     }
 }
