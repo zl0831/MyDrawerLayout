@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">DrawerDemo</string>
+    <string name="item_01">添加</string>
+    <string name="item_02">更多</string>
+    <string name="navigation_item_01">会员</string>
+    <string name="navigation_item_02">续费</string>
+    <string name="navigation_item_03">设置</string>
+</resources>
