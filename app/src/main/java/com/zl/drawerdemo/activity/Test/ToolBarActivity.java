@@ -1,4 +1,4 @@
-package com.zl.drawerdemo.activity;
+package com.zl.drawerdemo.activity.Test;
 
 import android.graphics.Color;
 import android.os.Bundle;
