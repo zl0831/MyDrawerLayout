@@ -4,4 +4,10 @@
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
     <color name="navigation_color">#FFFFFF</color>
+
+    <color name="fragment_background1_color">#00BCD4</color>
+    <color name="fragment_background2_color">#4CAF50</color>
+
+    <color name="colorTabItemDivider">#646464</color>
+
 </resources>

@@ -1,0 +1,36 @@
+<TabDatas>
+    <TabData>
+        <title>1</title>
+        <items>
+            <item>会员</item>
+            <item>充值</item>
+            <item>续费</item>
+        </items>
+    </TabData>
+    <TabData>
+        <title>2</title>
+        <items>
+            <item>信息</item>
+        </items>
+    </TabData>
+    <TabData>
+        <title>3</title>
+        <items>
+            <item>好友</item>
+            <item>陌生人</item>
+            <item>家人</item>
+            <item>同学</item>
+            <item>老师</item>
+        </items>
+    </TabData>
+    <TabData>
+        <title>4</title>
+        <items>
+            <item>LOL</item>
+            <item>微信</item>
+            <item>王者荣耀</item>
+            <item>DOTA2</item>
+        </items>
+    </TabData>
+
+</TabDatas>

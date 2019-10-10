@@ -341,7 +341,7 @@ public abstract class DrawerActivity extends BaseActivity {
          * 然后隐藏的时候就不用了removeView去除了，可以用setVisibility控制显隐,节省频繁动态创建销毁的消耗
          **/
         final View pop_layout = LayoutInflater.from(this).inflate(R.layout.pop_layout, content_parent,false);
-        RelativeLayout.LayoutParams params = (RelativeLayout.LayoutParams) pop_layout.getLayoutParams();
+        RelativeLayout.LayoutParams params =  (RelativeLayout.LayoutParams) pop_layout.getLayoutParams();
         params.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM);
         pop_layout.setLayoutParams(params);
 

@@ -9,8 +9,13 @@ import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Toast;
 
+import androidx.annotation.IdRes;
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.zl.drawerdemo.manager.ActivityCollector;
 
@@ -25,6 +30,9 @@ public abstract class BaseActivity extends AppCompatActivity {
     private boolean isAllowScreenRoate = true;
     //封装Toast对象
     private static Toast toast;
+    //封装Fragment对象
+    public FragmentManager mFragmentManager;
+
 
     public Context context;
 
@@ -45,6 +53,12 @@ public abstract class BaseActivity extends AppCompatActivity {
         }
 
         setContentView(InitLayout());
+
+        mFragmentManager = getSupportFragmentManager();
+
+        InitView();
+
+        InitData();
     }
 
 
@@ -69,6 +83,7 @@ public abstract class BaseActivity extends AppCompatActivity {
 
     /**
      * 设置是否显示标题栏
+     * 需要在onCreate之前调用
      *
      * @param showTitle true or false
      */
@@ -78,6 +93,7 @@ public abstract class BaseActivity extends AppCompatActivity {
 
     /**
      * 设置是否显示状态栏
+     * 需要在onCreate之前调用
      *
      * @param showStatusBar true or false
      */
@@ -92,6 +108,11 @@ public abstract class BaseActivity extends AppCompatActivity {
      */
     public void setAllowScreenRoate(boolean allowScreenRoate) {
         isAllowScreenRoate = allowScreenRoate;
+    }
+
+
+    public FragmentTransaction AddFragment(@IdRes int idRes,@NonNull Fragment fragment, @Nullable String tag){
+        return mFragmentManager.beginTransaction().add(idRes,fragment,tag);
     }
 
 

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragment.Test.Test2Fragment"
+    android:background="#E9E8E8"
+    >
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/root_rv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:overScrollMode="never"
+        android:scrollbars="none"
+        >
+
+    </androidx.recyclerview.widget.RecyclerView>
+
+
+</LinearLayout>

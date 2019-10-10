@@ -5,4 +5,11 @@
     <string name="navigation_item_01">会员</string>
     <string name="navigation_item_02">续费</string>
     <string name="navigation_item_03">设置</string>
+
+    <!--Fragment相关的-->
+    <string name="test_fragment_01">test fragment 01</string>
+    <string name="test_fragment_02">test fragment 02</string>
+
+
+
 </resources>
