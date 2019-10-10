@@ -3,6 +3,7 @@ package com.zl.drawerdemo.xml;
 import android.util.Log;
 
 import com.zl.drawerdemo.bean.TabData;
+import com.zl.drawerdemo.bean.TabItemData;
 
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
@@ -14,8 +15,9 @@ import java.util.List;
 public class TabDataSax extends DefaultHandler {
     private final String TAG = this.getClass().getSimpleName();
     private TabData tabData;
+    private TabItemData tabItemData;
     private List<TabData> tabDatas;
-    private List<String> items;
+    private List<TabItemData> items;
 
     private String tagName = null;
 
@@ -34,6 +36,9 @@ public class TabDataSax extends DefaultHandler {
         } else if (localName.equals("items")) {
             this.items.clear();
             Log.i(TAG, "startElement: 开始处理items元素");
+        }else if(localName.equals("item")){
+            tabItemData = new TabItemData();
+            Log.i(TAG, "startElement: 开始处理item元素");
         }
         this.tagName = localName;
     }
@@ -45,7 +50,7 @@ public class TabDataSax extends DefaultHandler {
             if (this.tagName.equals("title")) {
                 tabData.setTitle(data);
             } else if (this.tagName.equals("item")) {
-                this.items.add(data);
+                tabItemData.setName(data);
             }
         }
     }
@@ -58,8 +63,12 @@ public class TabDataSax extends DefaultHandler {
             tabData = null;
             Log.i(TAG, "endElement: 处理TabData元素结束");
         } else if (localName.equals("items")) {
-            tabData.setItems(new ArrayList<String>(this.items));
+            tabData.setItems(new ArrayList<>(items));
             Log.i(TAG, "endElement: 处理items元素结束");
+        }else if (localName.equals("item")) {
+            this.items.add(tabItemData);
+            tabItemData = null;
+            Log.i(TAG, "endElement: 处理item元素结束");
         }
 
         this.tagName = null;

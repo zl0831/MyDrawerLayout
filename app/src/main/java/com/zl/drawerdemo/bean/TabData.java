@@ -7,7 +7,7 @@ public class TabData {
     private String title;
 
     //每一范围的tab的名字集合
-    private List<String> items;
+    private List<TabItemData> items;
 
     public String getTitle() {
         return title;
@@ -17,11 +17,11 @@ public class TabData {
         this.title = title;
     }
 
-    public List<String> getItems() {
+    public List<TabItemData> getItems() {
         return items;
     }
 
-    public void setItems(List<String> items) {
+    public void setItems(List<TabItemData> items) {
         this.items = items;
     }
 }

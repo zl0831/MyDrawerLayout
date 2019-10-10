@@ -1,4 +1,4 @@
-package com.zl.drawerdemo.adapter;
+package com.zl.drawerdemo.adapter.Tab;
 
 import android.content.Context;
 
@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.zl.drawerdemo.R;
+import com.zl.drawerdemo.adapter.Base.QuickAdapter;
 import com.zl.drawerdemo.bean.TabData;
 
 import java.util.List;

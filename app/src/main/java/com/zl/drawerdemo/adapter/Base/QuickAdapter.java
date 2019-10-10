@@ -1,4 +1,4 @@
-package com.zl.drawerdemo.adapter;
+package com.zl.drawerdemo.adapter.Base;
 
 import android.content.Context;
 import android.util.SparseArray;
