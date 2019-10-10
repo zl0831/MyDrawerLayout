@@ -64,7 +64,7 @@ public class TestFragment extends BaseFragment{
             test_fragment_text.setText(num.toString());
             showToast(R.string.test_fragment_01);
 
-            mEventCallBack.OnActivity();
+            OnclickCallback();
         }
     };
 

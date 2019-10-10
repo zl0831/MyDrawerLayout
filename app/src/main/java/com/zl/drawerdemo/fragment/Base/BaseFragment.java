@@ -2,6 +2,7 @@ package com.zl.drawerdemo.fragment.Base;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,7 +19,7 @@ public abstract class BaseFragment extends Fragment {
     //上下文
     public Context context;
     //Fragment的回调
-    public EventCallBack mEventCallBack;
+    private EventCallBack mEventCallBack;
 
     /**
      * 封装Toast对象
@@ -30,10 +31,6 @@ public abstract class BaseFragment extends Fragment {
         super.onAttach(ctx);
         context = ctx;
 
-        /**
-         * 这是默认在Activity中创建Fragment时，给回调赋值，这种方法必须让Activity继承Fragment的回调接口
-         * 如不想让Activity继承Fragment的回调接口，则可以注销这行，然后在Activity调用Fragment的SetEventCallBack方法来动态增加回调
-         */
         if(ctx instanceof EventCallBack)
             mEventCallBack = (EventCallBack) ctx;
     }
@@ -76,6 +73,19 @@ public abstract class BaseFragment extends Fragment {
      */
     public void SetEventCallBack(EventCallBack mEventCallBack){
         this.mEventCallBack = mEventCallBack;
+    }
+
+
+    /**
+     * 调用Activity中的回调
+     */
+    public void OnclickCallback(){
+
+        if(mEventCallBack != null){
+            mEventCallBack.OnActivity();
+        }else {
+            Log.i(TAG, "OnclickCallback: mEventCallBack is null");
+        }
     }
 
 
